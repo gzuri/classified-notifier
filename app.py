@@ -21,8 +21,8 @@ def sendSlack(new_oglas):
         "Authorization": Config.slackAuth,
         "Content-Type": "application/json"
     }
-    print(new_oglas)
-    # requests.post(url, data=json.dumps(params), headers=headers)
+    # print(new_oglas)
+    requests.post(url, data=json.dumps(params), headers=headers)
 
 
 def parseOglasnikPage(link):
