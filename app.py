@@ -58,10 +58,10 @@ def parseNjuskaloPage(link):
         if len(link) < 1:
             continue
 
-        classifiedLink = link[0].get('href')
+        classifiedLink = 'https://www.njuskalo.hr' + link[0].get('href')
 
         if classifiedLink not in viewedClassifieds:
-            classifiedList.append('https://www.njuskalo.hr/' + classifiedLink)      
+            classifiedList.append(classifiedLink)      
 
     return classifiedList
 
@@ -75,11 +75,15 @@ if os.path.isfile(args.db):
     viewedClassifieds = json.load(file)
     file.close()
 
+
+
 for link in Config.oglasnikList:
     loadedClassifieds += parseOglasnikPage(link)
 
 for link in Config.njuskaloList:
     loadedClassifieds += parseNjuskaloPage(link)
+
+# print(loadedClassifieds)
 
 for classified in loadedClassifieds:
     sendSlack(classified)
