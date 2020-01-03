@@ -1,0 +1,6 @@
+class Config:
+    oglasnikList = []
+    njuskaloList = []
+
+    slackAuth = "Bearer ..."
+    slackBotName = "bot"

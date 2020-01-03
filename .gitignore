@@ -350,4 +350,5 @@ MigrationBackup/
 .ionide/
 
 # project specific ignores
-config.*
+config.py
+classified.db
